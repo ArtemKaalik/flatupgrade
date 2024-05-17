@@ -176,38 +176,38 @@ document.addEventListener('pointermove', onPointerMove);
 
 var addedObjects = []; // Массив для хранения добавленных объектов
 
-function addBigwall() {
-    var bigwallGeometry = new THREE.BoxGeometry(1, 30, 30);
-    // добавление текстуры
-    var bigwallMaterial = new THREE.MeshBasicMaterial({
-        map: new THREE.TextureLoader().load('/assets/objects/brown_wood.jpg'), // Текстура стены
-    });
+// function addBigwall() {
+//     var bigwallGeometry = new THREE.BoxGeometry(1, 30, 30);
+//     // добавление текстуры
+//     var bigwallMaterial = new THREE.MeshBasicMaterial({
+//         map: new THREE.TextureLoader().load('/assets/objects/brown_wood.jpg'), // Текстура стены
+//     });
 
-    var bigwall = new THREE.Mesh(bigwallGeometry, bigwallMaterial);
-    bigwall.position.set(-20, 0, 0);
-    scene.add(bigwall);
-    draggableObjects.push(bigwall); // Добавляем для перетаскивания
-    controls.update();
+//     var bigwall = new THREE.Mesh(bigwallGeometry, bigwallMaterial);
+//     bigwall.position.set(-20, 0, 0);
+//     scene.add(bigwall);
+//     draggableObjects.push(bigwall); // Добавляем для перетаскивания
+//     controls.update();
 
-    // Добавляем объект в массив добавленных объектов
-    addedObjects.push(bigwall);
-}
+//     // Добавляем объект в массив добавленных объектов
+//     addedObjects.push(bigwall);
+// }
 
-function addSmallwall() {
-    var smallwallGeometry = new THREE.BoxGeometry(1, 10, 10);
-    // добавление текстуры
-    var smallwallMaterial = new THREE.MeshBasicMaterial({
-        map: new THREE.TextureLoader().load('/assets/objects/FlashDerevo.JPG'), // Текстура стены
-    });
+// function addSmallwall() {
+//     var smallwallGeometry = new THREE.BoxGeometry(1, 10, 10);
+//     // добавление текстуры
+//     var smallwallMaterial = new THREE.MeshBasicMaterial({
+//         map: new THREE.TextureLoader().load('/assets/objects/FlashDerevo.JPG'), // Текстура стены
+//     });
 
-    var smallwall = new THREE.Mesh(smallwallGeometry, smallwallMaterial);
-    smallwall.position.set(-20, 0, 0);
-    scene.add(smallwall);
-    draggableObjects.push(smallwall); // Добавляем для перетаскивания
-    controls.update();
+//     var smallwall = new THREE.Mesh(smallwallGeometry, smallwallMaterial);
+//     smallwall.position.set(-20, 0, 0);
+//     scene.add(smallwall);
+//     draggableObjects.push(smallwall); // Добавляем для перетаскивания
+//     controls.update();
 
-    addedObjects.push(smallwall);
-}
+//     addedObjects.push(smallwall);
+// }
 
 function addChair() {
     // Создание экземпляра загрузчика OBJLoader
@@ -315,7 +315,7 @@ function addWall() {
     });
 
     const wall = new THREE.Mesh(wallGeometry, wallMaterial);
-    wall.position.set(-20, 0, 0);
+    // wall.position.set(-20, 0, 0);
     scene.add(wall);
     draggableObjects.push(wall); 
     controls.update();
@@ -329,7 +329,6 @@ function addWall() {
     wallFolder.add(wall.scale, 'y', 1, 4).name('Высота');
     wallFolder.add(wall.scale, 'z', 1, 15).name('Длинна');
     wallFolder.open();
-    
 }
 
 function deleteObject() {
