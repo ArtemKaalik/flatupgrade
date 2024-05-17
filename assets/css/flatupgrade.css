@@ -1,0 +1,24 @@
+.canvas-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Размеры рендерера Three.js */
+}
+
+
+.dg {
+    position: absolute;
+    top: 120px;
+    right: 0px;
+    /* width: -80px; */
+    /* transform: scale(1); */
+}
+
+.dg main a   {
+    height: auto;
+    width: 300px;
+}
+
+.dg .c {
+    font-size: 18px;
+  }
+

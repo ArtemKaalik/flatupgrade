@@ -1,0 +1,29 @@
+.section-about {
+    padding: 50px 0;
+}
+
+.section-about__container {
+    position: relative;
+    /* justify-content: flex-end; */
+    /* width: 1400px; */
+    
+}
+
+.section-about__title {
+    text-align: left; 
+}
+
+
+.section-about__text {
+    font-size: 18px;
+    line-height: 1.67;
+    margin: 0;
+}
+  
+
+.section-about__block {
+    padding: 20px;
+    margin-bottom: 20px;
+    display: block;
+    text-align: justify;
+}

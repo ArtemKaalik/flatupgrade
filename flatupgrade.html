@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/",
+            "three/OBJLoader": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/loaders/OBJLoader.js"
+          }
+        }
+    </script>
+      
+    
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/header-page.css">
+    <link rel="stylesheet" href="assets/css/footer-page.css">
+    <link rel="stylesheet" href="assets/css/section-gallery.css">
+    <link rel="stylesheet" href="assets/css/flatupgrade.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+    <title>FlatUpgrade</title>
+    
+</head>
+<body>
+    
+    <header class="header-page">
+        <div class="container header-page__container">
+            <div class="header-page__start">
+            <div class="logo">
+                <img class="logo__img" src="assets/img/logo-white.png" alt="" width="127" height="21">
+            </div>
+            </div>
+            <div class="header-page__end">
+            <nav class="header-page__nav">
+                <ul class="header-page__ul">
+                <li class="header-page__li">
+                    <a class="header-page__link" href="#">
+                    <span class="header-page__text">галерея</span>
+                    </a>
+                </li>
+                <li class="header-page__li">
+                    <a class="header-page__link" href="#">
+                    <span class="header-page__text">контакты</span>
+                    </a>
+                </li>
+                </ul>
+            </nav>
+            <div class="header-page__hamburger">
+                <button class="btn-menu" type="button">
+                <span class="btn-menu__box">
+                    <span class="btn-menu__inner"></span>
+                </span>
+                </button>
+            </div>
+            </div>
+        </div>
+    </header>
+    
+
+    <div id="canvas-container"></div>
+
+        
+    <footer class="footer-page">
+        <div class="container">
+          <div class="footer-page__text">© Ida-Virumaa Kutsehariduskeskus | SPTV20</div>
+        </div>
+    </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r17/Stats.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.163.0/three.module.min.js"></script>
+
+<script type="module" src="assets/js/three.js"></script>
+
+</body>
+</html>
