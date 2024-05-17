@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/section-info.css">
     <link rel="stylesheet" href="assets/css/footer-page.css">
     <link rel="stylesheet" href="assets/css/section-gallery.css">
+    <link rel="stylesheet" href="assets/css/section-contacts.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,15 +33,15 @@
         <nav class="header-page__nav">
             <ul class="header-page__ul">
             <li class="header-page__li">
-                <a class="header-page__link" href="#">
+                <a class="header-page__link" href="#" data-scroll-to="section-gallery">
                 <span class="header-page__text">галерея</span>
                 </a>
             </li>
             <li class="header-page__li">
-                <a class="header-page__link" href="#">
-                <span class="header-page__text">контакты</span>
+                <a class="header-page__link" href="#" data-scroll-to="section-contacts">
+                  <span class="header-page__text">Контакты</span>
                 </a>
-            </li>
+              </li>
             </ul>
         </nav>
         <div class="header-page__hamburger">
@@ -108,12 +109,39 @@
     </div>
 </section>
 
+<section class="section section-contacts">
+    <div class="container section-contacts__container">
+      <header class="section__header">
+        <h2 class="page-title section-contacts__title">Контакты</h2>
+      </header>
+      <div class="contacts">
+        <div class="contacts__end">
+          <div class="contacts__item">
+            <h3 class="contacts__title">Почта</h3>
+            <p class="contacts__text">artjom.kaalik@ivkhk.ee</p>
+            <p class="contacts__text">artjom.uvarov@ivkhk.ee</p>
+          </div>
+          <div class="contacts__item">
+            <h3 class="contacts__title">Телефон</h3>
+            <p class="contacts__text">
+              <a class="contacts__phone" href="#">+372 00000</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
 <footer class="footer-page">
     <div class="container">
       <div class="footer-page__text">© Ida-Virumaa Kutsehariduskeskus | SPTV20</div>
     </div>
 </footer>
+
+
+<script src="assets/js/myLib.js"></script>
+<script src="assets/js/scrollTo.js"></script>
 
 </body>
 </html>

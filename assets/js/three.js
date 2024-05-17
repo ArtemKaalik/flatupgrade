@@ -210,10 +210,8 @@ var addedObjects = []; // Массив для хранения добавлен�
 // }
 
 function addChair() {
-    // Создание экземпляра загрузчика OBJLoader
     const loader = new OBJLoader();
 
-    // Загрузка модели "chair"
     loader.load(
         '/assets/objects/chair/chair.obj',
         function (object) {
@@ -229,7 +227,7 @@ function addChair() {
             object.scale.set(0.25, 0.25, 0.25);
             scene.add(object);
 
-            // Добавляем объект к перетаскиваемым объектам
+            // Реализация перемещения объекта
             draggableObjects.push(object);
             controls.update()
 
