@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="assets/css/footer-page.css">
     <link rel="stylesheet" href="assets/css/section-gallery.css">
     <link rel="stylesheet" href="assets/css/section-contacts.css">
+    <link rel="stylesheet" href="assets/css/modalwindow.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +46,7 @@
             </ul>
         </nav>
         <div class="header-page__hamburger">
-            <button class="btn-menu" type="button">
+            <button class="btn-menu" type="button" data-modalwindow="modalwindow-menu">
             <span class="btn-menu__box">
                 <span class="btn-menu__inner"></span>
             </span>
@@ -140,7 +141,32 @@
 </footer>
 
 
+<div class="modalwindow modalwindow-menu">
+    <div class="modalwindow__wrapper">
+        <div class="modalwindow__inner">
+            <div class="modalwindow__content modalwindow__content--padding modalwindow__content--centered">
+                <button class="btn-close modalwindow__btn-close modalwindow-close"></button>
+                <nav class="mobile-menu popup__mobile-menu">
+                    <ul class="mobile-menu__ul">
+                      <li class="mobile-menu__li">
+                        <a class="mobile-menu__link modalwindow-close" href="#" data-scroll-to="section-contacts">Контакты</a>
+                      </li>
+                      <li class="mobile-menu__li">
+                        <a class="mobile-menu__link modalwindow-close" href="#" data-scroll-to="section-gallery">Галерея</a>
+                      </li>
+                      <li class="mobile-menu__li">
+                        <a class="mobile-menu__link modalwindow-close" href="flatupgrade.html">Начать планирование</a>
+                      </li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script src="assets/js/myLib.js"></script>
+<script src="assets/js/modalwindow.js"></script>
 <script src="assets/js/scrollTo.js"></script>
 
 </body>

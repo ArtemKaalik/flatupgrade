@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="assets/css/footer-page.css">
     <link rel="stylesheet" href="assets/css/section-gallery.css">
     <link rel="stylesheet" href="assets/css/flatupgrade.css">
+    <link rel="stylesheet" href="assets/css/modalwindow.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +49,7 @@
                 </ul>
             </nav>
             <div class="header-page__hamburger">
-                <button class="btn-menu" type="button">
+                <button class="btn-menu" type="button" data-modalwindow="modalwindow-menu">
                 <span class="btn-menu__box">
                     <span class="btn-menu__inner"></span>
                 </span>
@@ -68,6 +69,23 @@
         </div>
     </footer>
 
+<div class="modalwindow modalwindow-menu">
+    <div class="modalwindow__wrapper">
+        <div class="modalwindow__inner">
+            <div class="modalwindow__content modalwindow__content--padding modalwindow__content--centered">
+                <button class="btn-close modalwindow__btn-close modalwindow-close"></button>
+                <nav class="mobile-menu popup__mobile-menu">
+                    <ul class="mobile-menu__ul">
+                      <li class="mobile-menu__li">
+                        <a class="mobile-menu__link modalwindow-close" href="index.html">Главная страница</a>
+                      </li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -75,6 +93,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.163.0/three.module.min.js"></script>
 
 <script type="module" src="assets/js/three.js"></script>
+<script src="assets/js/modalwindow.js"></script>
+<script src="assets/js/myLib.js"></script>
 
 </body>
 </html>
