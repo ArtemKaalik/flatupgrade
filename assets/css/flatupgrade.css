@@ -1,24 +1,62 @@
-.canvas-container {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Размеры рендерера Three.js */
+.dg.main.taller-than-window .close-button {
+    border-top: 1px solid #ddd;
 }
 
+.dg.main .close-button {
+    /* background-color: #e8e8e8; */
+    visibility: hidden;
+}
+ 
+.dg.main .close-button:hover {
+    /* background-color: #ddd; */
+}
 
 .dg {
+    color: #ffffff;
+    text-shadow: none !important;
     position: absolute;
     top: 120px;
     right: 0px;
-    /* width: -80px; */
-    /* transform: scale(1); */
 }
 
-.dg main a   {
-    height: auto;
-    width: 300px;
+.dg.main::-webkit-scrollbar {
+    /* background: #fafafa; */
 }
 
-.dg .c {
-    font-size: 18px;
-  }
+.dg.main::-webkit-scrollbar-thumb {
+    /* background: #bbb; */
+}
+ 
+ 
+/* .dg li.save-row .button {
+    text-shadow: none !important;
+}
 
+.dg li.title {
+    background: #e8e8e8 6px 10px no-repeat;
+}
+
+.dg .cr.function:hover,.dg .cr.boolean:hover {
+    background: #fff;
+}
+ 
+.dg .c input[type=text] {
+    background: #e9e9e9;
+}
+ 
+.dg .c input[type=text]:hover {
+    background: #eee;
+}
+ 
+.dg .c input[type=text]:focus {
+    background: #eee;
+    color: #555;
+} */
+ 
+.dg .c .slider {
+    /* background: #e9e9e9; */
+}
+
+.dg .c .slider:hover {
+    /* background: #eee; */
+}

@@ -238,7 +238,7 @@ function addChair() {
     );
 }
 
-function addCloset() {
+function addBed() {
     // Создание экземпляра загрузчика OBJLoader
     const loader = new OBJLoader();
 
@@ -273,6 +273,65 @@ function addCloset() {
     );
 }
 
+function addTable() {
+    // Создание экземпляра загрузчика OBJLoader
+    const loader = new OBJLoader();
+
+    loader.load(
+        '/assets/objects/table/table.obj',
+        function (object) {
+            const textureLoader = new THREE.TextureLoader();
+            const texture = textureLoader.load('/assets/objects/wood.jpg');
+
+            object.traverse(function (child) {
+                if (child instanceof THREE.Mesh) {
+                    child.material = new THREE.MeshBasicMaterial({ map: texture });
+                }
+            });
+            
+            object.scale.set(13, 13, 13);
+            // object.rotation.x = -Math.PI / 2;
+            scene.add(object);
+
+            // Добавляем объект к перетаскиваемым объектам
+            draggableObjects.push(object);
+            controls.update()
+
+            addedObjects.push(object);
+
+            // Добавляем обработчик события клика на объект
+            object.addEventListener('click', function() {
+                // Запускаем вертикальное вращение объекта
+                startVerticalRotation(object);
+            });
+        }
+    );
+}
+
+function addWall() {
+    const wallGeometry = new THREE.BoxGeometry(1, 10, 10);
+    const wallMaterial = new THREE.MeshBasicMaterial({
+        map: new THREE.TextureLoader().load('/assets/objects/brown_wood.jpg'), // Текстура стены
+    });
+
+    const wall = new THREE.Mesh(wallGeometry, wallMaterial);
+    wall.position.set(-20, 0, 0);
+    scene.add(wall);
+    draggableObjects.push(wall); 
+    controls.update();
+
+    addedObjects.push(wall);
+
+    // GUI для регулировки размеров стены
+    const gui = new dat.GUI();
+    const wallFolder = gui.addFolder('Размеры стены');
+    wallFolder.add(wall.scale, 'x', 1, 10).name('Ширина');
+    wallFolder.add(wall.scale, 'y', 1, 4).name('Высота');
+    wallFolder.add(wall.scale, 'z', 1, 15).name('Длинна');
+    wallFolder.open();
+    
+}
+
 function deleteObject() {
     // Проверяем, есть ли добавленные объекты для удаления
     if (addedObjects.length > 0) {
@@ -290,10 +349,12 @@ function deleteObject() {
 
 function initGUI() {
     const gui = new dat.GUI();
-    gui.add({ addBigwall: addBigwall }, 'addBigwall').name('Добавить стену 30см');
-    gui.add({ addSmallwall: addSmallwall }, 'addSmallwall').name('Добавить стену 10см');
+    gui.add({ addWall: addWall }, 'addWall').name('Добавить стену');
+    // gui.add({ addBigwall: addBigwall }, 'addBigwall').name('Большая стена');
+    // gui.add({ addSmallwall: addSmallwall }, 'addSmallwall').name('Маленькая стена');
     gui.add({ addChair: addChair }, 'addChair').name('Добавить стул');
-    gui.add({ addCloset: addCloset }, 'addCloset').name('Добавить шкаф');
+    gui.add({ addBed: addBed }, 'addBed').name('Добавить кровать');
+    gui.add({ addTable: addTable }, 'addTable').name('Добавить стол');
     gui.add({ deleteObject: deleteObject }, 'deleteObject').name('Отменить последнее действие');
     gui.add({ takeScreenshot: takeScreenshot }, 'takeScreenshot').name('Сохранить скриншот');
 
