@@ -306,6 +306,33 @@ function addTable() {
     );
 }
 
+function addSofa() {
+    const loader = new OBJLoader();
+
+    loader.load(
+        '/assets/objects/sofa/sofa.obj',
+        function (object) {
+            const textureLoader = new THREE.TextureLoader();
+            const texture = textureLoader.load('/assets/objects/chair/texture-cloth.jpg');
+
+            object.traverse(function (child) {
+                if (child instanceof THREE.Mesh) {
+                    child.material = new THREE.MeshBasicMaterial({ map: texture });
+                }
+            });
+            
+            object.scale.set(9, 9, 9);
+            scene.add(object);
+
+            // Реализация перемещения объекта
+            draggableObjects.push(object);
+            controls.update()
+
+            addedObjects.push(object);
+        }
+    );
+}
+
 function addWall() {
     const wallGeometry = new THREE.BoxGeometry(1, 10, 10);
     const wallMaterial = new THREE.MeshBasicMaterial({
@@ -352,6 +379,7 @@ function initGUI() {
     gui.add({ addChair: addChair }, 'addChair').name('Добавить стул');
     gui.add({ addBed: addBed }, 'addBed').name('Добавить кровать');
     gui.add({ addTable: addTable }, 'addTable').name('Добавить стол');
+    gui.add({ addSofa: addSofa }, 'addSofa').name('Добавить диван');
     gui.add({ deleteObject: deleteObject }, 'deleteObject').name('Отменить последнее действие');
     gui.add({ takeScreenshot: takeScreenshot }, 'takeScreenshot').name('Сохранить скриншот');
 
