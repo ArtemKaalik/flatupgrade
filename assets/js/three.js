@@ -7,43 +7,6 @@ import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
 var WIDTH = window.innerWidth;
 var HEIGHT = window.innerHeight;
 
-
-// Создание экземпляра загрузчика OBJLoader
-// const loader = new OBJLoader();
-
-// Загрузка текстуры
-// const textureLoader = new THREE.TextureLoader();
-// const texture = textureLoader.load('/assets/objects/FlashDerevo.JPG');
-
-// Применение текстуры к загруженному объекту
-// loader.load(
-//     '/assets/objects/chair/chair.obj',
-//     function (object) {
-//         object.traverse(function (child) {
-//             if (child instanceof THREE.Mesh) {
-//                 child.material = new THREE.MeshBasicMaterial({ map: texture });
-//             }
-//         });
-
-//         object.scale.set(0.25, 0.25, 0.25);
-//         scene.add(object);
-
-//         // Добавляем объект к перетаскиваемым объектам
-//         draggableObjects.push(object);
-
-//         // Обновляем DragControls с новым объектом
-//         dragControls = new DragControls(draggableObjects, camera, renderer.domElement);
-
-//         dragControls.addEventListener('dragstart', function (event) {
-//             controls.enabled = false;
-//         });
-
-//         dragControls.addEventListener('dragend', function (event) {
-//             controls.enabled = true;
-//         });
-//     }
-// );
-
 // Renderer
 var renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(WIDTH, HEIGHT);
@@ -333,6 +296,34 @@ function addSofa() {
     );
 }
 
+function addCarpet() {
+    const loader = new OBJLoader();
+
+    loader.load(
+        '/assets/objects/carpets/10404_Circular_Throw_Rug_v1_max2010_iterations-2.obj',
+        function (object) {
+            const textureLoader = new THREE.TextureLoader();
+            const texture = textureLoader.load('/assets/objects/carpet_material3.jpg');
+
+            object.traverse(function (child) {
+                if (child instanceof THREE.Mesh) {
+                    child.material = new THREE.MeshBasicMaterial({ map: texture });
+                }
+            });
+            
+            object.scale.set(0.15, 0.15, 0.15);
+            object.rotation.x = -Math.PI / 2;
+            scene.add(object);
+
+            // Реализация перемещения объекта
+            draggableObjects.push(object);
+            controls.update()
+
+            addedObjects.push(object);
+        }
+    );
+}
+
 function addWall() {
     const wallGeometry = new THREE.BoxGeometry(1, 10, 10);
     const wallMaterial = new THREE.MeshBasicMaterial({
@@ -380,6 +371,7 @@ function initGUI() {
     gui.add({ addBed: addBed }, 'addBed').name('Добавить кровать');
     gui.add({ addTable: addTable }, 'addTable').name('Добавить стол');
     gui.add({ addSofa: addSofa }, 'addSofa').name('Добавить диван');
+    gui.add({ addCarpet: addCarpet }, 'addCarpet').name('Добавить ковер');
     gui.add({ deleteObject: deleteObject }, 'deleteObject').name('Отменить последнее действие');
     gui.add({ takeScreenshot: takeScreenshot }, 'takeScreenshot').name('Сохранить скриншот');
 
