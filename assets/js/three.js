@@ -139,39 +139,6 @@ document.addEventListener('pointermove', onPointerMove);
 
 var addedObjects = []; // Массив для хранения добавленных объектов
 
-// function addBigwall() {
-//     var bigwallGeometry = new THREE.BoxGeometry(1, 30, 30);
-//     // добавление текстуры
-//     var bigwallMaterial = new THREE.MeshBasicMaterial({
-//         map: new THREE.TextureLoader().load('/assets/objects/brown_wood.jpg'), // Текстура стены
-//     });
-
-//     var bigwall = new THREE.Mesh(bigwallGeometry, bigwallMaterial);
-//     bigwall.position.set(-20, 0, 0);
-//     scene.add(bigwall);
-//     draggableObjects.push(bigwall); // Добавляем для перетаскивания
-//     controls.update();
-
-//     // Добавляем объект в массив добавленных объектов
-//     addedObjects.push(bigwall);
-// }
-
-// function addSmallwall() {
-//     var smallwallGeometry = new THREE.BoxGeometry(1, 10, 10);
-//     // добавление текстуры
-//     var smallwallMaterial = new THREE.MeshBasicMaterial({
-//         map: new THREE.TextureLoader().load('/assets/objects/FlashDerevo.JPG'), // Текстура стены
-//     });
-
-//     var smallwall = new THREE.Mesh(smallwallGeometry, smallwallMaterial);
-//     smallwall.position.set(-20, 0, 0);
-//     scene.add(smallwall);
-//     draggableObjects.push(smallwall); // Добавляем для перетаскивания
-//     controls.update();
-
-//     addedObjects.push(smallwall);
-// }
-
 function addChair() {
     const loader = new OBJLoader();
 
@@ -356,7 +323,10 @@ function deleteObject() {
         scene.remove(lastAddedObject);
 
         // Удаляем объект из массива перетаскиваемых объектов
-        draggableObjects = draggableObjects.filter(obj => obj !== lastAddedObject);
+        const index = draggableObjects.indexOf(lastAddedObject);
+        if (index > -1) {
+            draggableObjects.splice(index, 1); // Удаляем элемент из массива
+        }
 
         controls.update();
     }
